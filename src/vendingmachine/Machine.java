@@ -14,6 +14,27 @@ public class Machine {
             index++;
         }
     }
+    public int getNumdrink(int select){
+        return machine[select].getNum();
+    }
+    public int getCostdrink(int money,int select){
+        return machine[select].getCost();
+    }
+    public void soldOut(int money){
+            System.out.println("Sold Out");
+            System.out.println("Return : " + money + " bahts");
+    }
+    public void notEnough(int money){
+            System.out.println("Not enough money to buy");
+            System.out.println("Return : " + money + " bahts");   
+    }
+    public void buy(int money,int number){
+            money = money - machine[number].getCost();
+            machine[number].tookOut();
+            System.out.println("Output : " + machine[number].getName()+
+                                "\nChange : " + money + " bahts");
+    }
+      
     @Override
     public String toString(){
         System.out.println("Allow drink in machine:");
